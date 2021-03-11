@@ -2,12 +2,14 @@ import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 import mongoose from 'mongoose';
+import methodOverride from 'method-override';
 import articleRouter from "./routes/article.js";
 import Article from './models/article.js';
 const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
 app.use("/articles", articleRouter);
 
 
@@ -20,6 +22,7 @@ const connectToMongoDb = async () => {
     const result = await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useCreateIndex: true
     });
     app.listen(process.env.PORT || 8585, "0.0.0.0");
     console.log(`Back end server running on ${process.env.PORT}`);
