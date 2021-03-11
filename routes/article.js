@@ -5,7 +5,7 @@ import Article from '../models/article.js';
 const articleRouter = express.Router();
 
 
-articleRouter.get('/', (req, res) => {
+articleRouter.get('/' , (req, res) => {
     res.send('in articles');
 });
 
