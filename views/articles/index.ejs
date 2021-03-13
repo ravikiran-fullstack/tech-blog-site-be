@@ -23,7 +23,7 @@
                     <%= article.title %>
                 </h4>
                 <div class="card-subtitle text-muted mb-2">
-                    <%= article.createdAt.toLocaleDateString() %>
+                    <%= article.createdAt.toLocaleDateString() %> | <%= article.category %>
                 </div>
                 <div class="card-text mb-2">
                     <%= article.description %>
@@ -31,7 +31,7 @@
 
                 <div class="card-text mb-2">
                   <%- article.sanatizedHtml %>
-              </div>
+                </div>
 
                 <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
                 <a href="/articles/edit/<%= article.slug %>" class="btn btn-info">Edit</a>

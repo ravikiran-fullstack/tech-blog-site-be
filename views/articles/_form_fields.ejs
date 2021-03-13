@@ -19,5 +19,17 @@
   <textarea class="form-control" id="markdonw" name="markdown"><%= article.markdown %></textarea>
 </div>
 
+<div class="form-group">
+  <label for="category">Category</label>
+  <select class="form-control" id="category" name="category" required>
+    <option value="reactjs">ReactJS</option>
+    <option value="nodejs">NodeJS</option>
+    <option value="javascript">Javascript</option>
+    <option value="typescript">Typescript</option>
+    <option value="database">Database</option>
+    <option value="other">Other</option>
+  </select>
+</div>
+
 <a href="/" class="btn btn-secondary">Cancel</a>
 <button type="submit" class="btn btn-primary">Save</button>
