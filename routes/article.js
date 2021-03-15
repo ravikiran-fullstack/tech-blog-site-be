@@ -58,12 +58,12 @@ articleRouter.get("/edit/:slug", async (req, res) => {
 });
 
 articleRouter.put("/:slug", async (req, res) => {
-  //console.log('----------------------------------',req.params.slug, req.body);
+  console.log('----------------------------------',req.params.slug, req.body);
   let article = await Article.findOne({ slug: req.params.slug });
   article.title = req.body.title;
   article.description = req.body.description;
   article.markdown = req.body.markdown;
-  article.category = req.body.category;
+  article.category = req.body.category; 
   await article.save();
   res.redirect("/articles/");
 });
@@ -71,8 +71,9 @@ articleRouter.put("/:slug", async (req, res) => {
 articleRouter.get("/:slug", async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug });
   //console.log('article',article);
-  if (article == null) res.redirect("/");
-  res.render("articles/show", { article: article });
+  //if (article == null) res.redirect("/");
+  //res.render("articles/show", { article: article });
+  return res.send(article);
 });
 
 articleRouter.post("/", async (req, res) => {
