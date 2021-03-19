@@ -20,8 +20,21 @@
 </div>
 
 <div class="form-group">
+  <label for="backgroundImage">Background Image</label>
+  <input
+    type="text"
+    class="form-control"
+    id="backgroundImage"
+    name="backgroundImage"
+    value="<%= article.backgroundImage %>"
+    placeholder="Background Image URL"
+    required
+  />
+</div>
+
+<div class="form-group">
   <label for="category">Category</label>
-  <select class="form-control" id="category" name="category" required>
+  <select class="form-control" id="category" name="category" selected="nodejs" required>
     <option value="reactjs">ReactJS</option>
     <option value="nodejs">NodeJS</option>
     <option value="javascript">Javascript</option>

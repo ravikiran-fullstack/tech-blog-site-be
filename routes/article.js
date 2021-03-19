@@ -53,7 +53,7 @@ articleRouter.delete("/:id", async (req, res) => {
 
 articleRouter.get("/edit/:slug", async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug });
-  // console.log('----------------------------------',article);
+  console.log('----------------------------------',article);
   res.render("articles/edit", { article: article, update: true });
 });
 
@@ -63,7 +63,8 @@ articleRouter.put("/:slug", async (req, res) => {
   article.title = req.body.title;
   article.description = req.body.description;
   article.markdown = req.body.markdown;
-  article.category = req.body.category; 
+  article.category = req.body.category;
+  article.backgroundImage = req.body.backgroundImage; 
   await article.save();
   res.redirect("/articles/");
 });
@@ -83,6 +84,7 @@ articleRouter.post("/", async (req, res) => {
     description: req.body.description,
     markdown: req.body.markdown,
     category: req.body.category,
+    backgroundImage: req.body.backgroundImage
   });
 
   try {
